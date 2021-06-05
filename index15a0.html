@@ -1,0 +1,491 @@
+<?php 
+session_start();
+
+	include("connection.php");
+	include("functions.php");
+
+  if($_SERVER['REQUEST_METHOD'] == "POST")
+	{
+		//something was posted
+    $name= $_POST['name'];
+    $email= $_POST['email'];
+		$message= $_POST['message'];
+
+		if(!empty($withdrawmoney))
+		{
+
+			//save to database
+			$user_id = random_num(20);
+			$query = "insert into users3 (name,email,message) values ('$name','$email','$message')";
+
+			mysqli_query($con, $query);
+
+			header("Location: withdrawalrequest.php");
+			die;
+		}else
+		{
+			echo "Please enter some valid information!";
+		}
+	}
+
+
+	$user_data = check_login($con);
+  function get_client_ip() {
+		$ipaddress = '';
+		if (isset($_SERVER['HTTP_CLIENT_IP']))
+			$ipaddress = $_SERVER['HTTP_CLIENT_IP'];
+		else if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+			$ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+		else if(isset($_SERVER['HTTP_X_FORWARDED']))
+			$ipaddress = $_SERVER['HTTP_X_FORWARDED'];
+		else if(isset($_SERVER['HTTP_FORWARDED_FOR']))
+			$ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
+		else if(isset($_SERVER['HTTP_FORWARDED']))
+			$ipaddress = $_SERVER['HTTP_FORWARDED'];
+		else if(isset($_SERVER['REMOTE_ADDR']))
+			$ipaddress = $_SERVER['REMOTE_ADDR'];
+		else
+			$ipaddress = 'UNKNOWN';
+		return $ipaddress;
+	}
+
+?>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="date=no">
+    <meta name="format-detection" content="address=no">
+    <meta name="format-detection" content="email=no">
+    <meta content="notranslate" name="google">
+    <meta property="og:locale" content="en-En">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="bitnet-global.ltd">
+    <meta property="og:description" content="We’re a financial and consulting business company">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    <title>crypto-global.ltd | Your Prosperity Is Our Passion</title>
+    <link rel="stylesheet" href="en/css/libs.min.css">
+    <link rel="stylesheet" href="en/css/style.min18c4.css?v10">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	
+	<style>
+	
+table.tab {    font-size: 14px;
+    color: #000;
+    width: 100%;
+    border-width: 1px;
+    border-color: #DA0014;
+    border-collapse: collapse;
+    /* font-weight: 600; */
+    font-family: sans-serif;
+    letter-spacing: 1px;}
+table.tab th {
+font-size: 14px;
+    background-color: #ffca13;
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #ffca13;
+    text-align: center;
+    color: #000000;
+    font-family: sans-serif;
+    letter-spacing: 0px;
+	height:40px;
+}
+table.tab tr {}
+table.tab td {    font-size: 14px;
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #FFFFFF;
+    background-color: #f0f0f0;
+	height:40px;
+	}
+
+
+table.blank {font-size: 14px;
+    color: #000;
+    width: 100%;
+    border-width: 1px;
+    border-color: #DA0014;
+    border-collapse: collapse;
+    /* font-weight: 600; */
+    font-family: sans-serif;
+    letter-spacing:.5px;}
+table.blank th {font-size:14px;background-color:#abd28e;border-width: 0px;padding: 8px;border-style: solid;border-color: #9dcc7a;text-align:left;}
+table.blank tr {}
+table.blank td {font-size:14px;border-width: 0px;padding: 8px;border-style: solid;border-color: #9dcc7a;}
+</style>
+
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+            <div class="header__wrap"><a class="img-wrapper header__img-wrap" href="index.html"><img src="en/images/logohome.png" alt="logo"></a>
+
+<div class="col-lg-2 col-md-6 col-sm-6 col-xs-12">
+                            	<div class="banner-lang wow bounceIn">
+                                	<div id="google_translate_element"></div>
+							<script>
+                               function googleTranslateElementInit() {
+                                  new google.translate.TranslateElement({
+                                     pageLanguage: 'en'
+                                  }, 'google_translate_element');
+                               }
+                            </script>
+                            <script src="../translate.google.com/translate_a/elementa0d8.html?cb=googleTranslateElementInit"></script>
+                                </div>
+                            </div>
+			            <div class="user-block header__user-block">
+              <div class="user-block__auth">
+                <div class="user-block__login"><a href="login.php">Login</a></div>
+                <div class="user-block__separate"></div><a class="user-block__signup" href="signup.php">Sign up</a>
+              </div>
+            </div>
+			          </div>
+          <nav class="header-nav">
+            <ul class="no-style header-nav__list">
+              <li class="header-nav__item"><a class="header-nav__link" href="index.html">Home</a></li>
+              <li class="header-nav__item"><a class="header-nav__link" href="index3898.html?a=cust&amp;page=about">About Us</a></li>
+              <li class="header-nav__item"><a class="header-nav__link" href="index4f30.html?a=cust&amp;page=a-program">Affiliate Program</a></li>
+              <li class="header-nav__item"><a class="header-nav__link" href="index38cd.html?a=faq">FAQ</a></li>
+              <li class="header-nav__item"><a class="header-nav__link" href="index15a0.html?a=support">Contact us</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <main>
+        <h1 class="visually-hidden">We’re a financial and consulting business company</h1>
+        <div class="container">
+              <ul class="breadcrumbs" aria-label="Breadcrumb" role="navigation">
+                    <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="index.html">Home</a>
+                    </li>
+                    <li class="breadcrumbs__item"><span>Contact us</span>
+                    </li>
+              </ul>
+          <section class="contact-main">
+            <h2 class="contact-main__title">Contact us</h2>
+            <div class="contact-main__block">
+              <div class="contact-main__left">
+                <h3 class="contact-main__inner-title">Get in touch</h3>
+                <p class="contact-main__subtitle">Our office working hours 24/7</p>
+                <div class="contact-main__item contact-main__address">
+                  <h4 class="contact-main__item-title">Corporate Headquarters</h4>
+                  <p class="contact-main__item-text">25 Crofton Drive, Lincolnshire, United Kingdom, LN3 4NR  </p>
+                </div>
+                <div class="contact-main__item contact-main__mail">
+                  <h4 class="contact-main__item-title">E-mail:</h4>cryptogloballtd@gmail.com</a>
+                </div>
+
+              </div>
+              <div class="contact-main__right">
+                <h3 class="contact-main__inner-title">Send us a message</h3>
+                <p class="contact-main__subtitle">If you didn't find your answer in the FAQ, please feel free to contact us through our support center. Simply choose the appropriate support options to send us your questions, concerns and/or feedback.</p>
+				
+				
+				
+				
+
+<script language=javascript>
+
+function checkform() {
+  if (document.mainform.name.value == '') {
+    alert("Please type your full name!");
+    document.mainform.name.focus();
+    return false;
+  }
+  if (document.mainform.email.value == '') {
+    alert("Please enter your e-mail address!");
+    document.mainform.email.focus();
+    return false;
+  }
+  if (document.mainform.message.value == '') {
+    alert("Please type your message!");
+    document.mainform.message.focus();
+    return false;
+  }
+  return true;
+}
+
+</script>
+				<form class="form-contact-mes" method=post name=mainform onsubmit="return checkform()"><input type="hidden" name="form_id" value="16210860875439"><input type="hidden" name="form_token" value="7a9482ed26a5d511d44b5f400a30e6c5">
+<input type=hidden name=a value=support>
+<input type=hidden name=action value=send>
+
+              
+                  <div class="input-group">
+                    <label><img src="en/images/icons/ic_profile-trans.svg" alt="name">
+                      <div class="input-group__wrap">
+                        <input type="text" name="name" placeholder="Your Name" data-msg-required="Check for correct input">
+                        <div class="input-group__border"></div>
+                        <div class="input-group__border-active"></div>
+                      </div>
+                    </label>
+                  </div>
+                  <div class="input-group">
+                    <label><img src="en/images/icons/ic_mail-trans.svg" alt="name">
+                      <div class="input-group__wrap">
+                        <input type="email" name="email" placeholder="Email" data-msg-required="Check for correct input">
+                        <div class="input-group__border"></div>
+                        <div class="input-group__border-active"></div>
+                      </div>
+                    </label>
+                  </div>
+                  <div class="input-group">
+                    <label><img src="en/images/icons/ic_pen.svg" alt="name">
+                      <div class="input-group__wrap">
+                        <textarea type="text" name="message" placeholder="Message" data-msg-required="Check for correct input"></textarea>
+                        <div class="input-group__border"></div>
+                        <div class="input-group__border-active"></div>
+                      </div>
+                    </label>
+                  </div>
+                  <button class="btn contact-main__submit" type="submit">Send</button>
+                </form>
+				                <div class="error" id="form_answer_error"></div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div class="contacts-map-block">
+          <div id="map"></div>
+        </div>
+      </main>
+         <footer class="footer">
+        <div class="footer__top">
+          <div class="container">
+            <ul class="no-style footer__nav">
+              <li class="footer__nav-item"><a class="footer__nav-link" href="index.html">Home</a></li>
+              <li class="footer__nav-item"><a class="footer__nav-link" href="index3898.html?a=cust&amp;page=about">About Us</a></li>
+              <li class="footer__nav-item"><a class="footer__nav-link" href="index4f30.html?a=cust&amp;page=a-program">Affiliate Program</a></li>
+              <li class="footer__nav-item"><a class="footer__nav-link" href="index38cd.html?a=faq">FAQ</a></li>
+              <li class="footer__nav-item"><a class="footer__nav-link" href="index15a0.html?a=support">Contact us</a></li>
+            </ul>
+            <div class="footer__inner-block">
+              <div class="footer__links-wrap">
+
+                <div class="footer__companies">
+                  <a class="img-wrapper footer__company" href="https://www.comodo.com/" target="_blank"><img src="en/images/companies/comodo.png" alt="comodo"></a>
+                  <a class="img-wrapper footer__company" href="https://www.cloudflare.com/" target="_blank"><img src="en/images/companies/cloudflare.png" alt="cloudflare"></a>
+                </div>
+              </div>
+              <table class="footer__features">
+                <tbody>
+                  <tr>
+                    <td>Company name:</td>
+                    <td>crypto-global.ltd</td>
+                  </tr>
+                  <tr>
+                    <td>Our business address:</td>
+                    <td>25 Crofton Drive, Lincolnshire, United Kingdom, LN3 4NR  </td>
+                  </tr>
+                  <tr>
+                    <td>Office hours:</td>
+                    <td>24/7</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <div class="container">
+            <ul class="no-style footer__pay-list">
+              <li class="img-wrapper footer__pay-item"><img src="en/images/companies/bit.svg" alt="sys"></li>
+              <li class="img-wrapper footer__pay-item"><img src="en/images/companies/lite.svg" alt="sys"></li>
+              <li class="img-wrapper footer__pay-item"><img src="en/images/companies/eth.svg" alt="sys"></li>
+              <li class="img-wrapper footer__pay-item"><img src="en/images/companies/ripple.svg" alt="sys"></li>
+              <li class="img-wrapper footer__pay-item"><img src="en/images/companies/monero.svg" alt="sys"></li>
+              <li class="img-wrapper footer__pay-item"><img src="en/images/companies/dash.svg" alt="sys"></li>
+            </ul>
+            <div class="footer__bot-main">
+              <p class="footer__rights">Copyright © 2020 crypto-global.ltd. All rights reserved. crypto-global.ltd is incorporated under the Companies Act as a private limited company.</p>
+              <p class="fin-contacts">crypto-global.ltd on:<a class="fin-contacts__twitter" href="https://twitter.com/" title="twitter" target="_blank"></a><a class="fin-contacts__youtube" href="https://youtu.be/" title="youtube" target="_blank"></a></p>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <div class="default-modal modal-login">
+        <div class="default-modal__content">
+          <!--.default-modal__close-->
+          <h2 class="default-modal__title"> Login</h2>
+		  
+		  <form class="formLogin" method=post name=mainform onsubmit="return checkform()"><input type="hidden" name="form_id" value="16210860875439"><input type="hidden" name="form_token" value="7a9482ed26a5d511d44b5f400a30e6c5">
+<input type=hidden name=a value='do_login'>
+<input type=hidden name=follow value=''>
+<input type=hidden name=follow_id value=''>
+
+ 
+            <div class="input-group">
+              <label><img src="en/images/icons/ic_mail-trans.svg" alt="name">
+                <div class="input-group__wrap">
+                  <input type="text" name=username placeholder="Username" data-msg-required="Check for correct input">
+                  <div class="input-group__border"></div>
+                  <div class="input-group__border-active"></div>
+                </div>
+              </label>
+            </div>
+            <div class="input-group">
+              <label><img src="en/images/icons/ic_lock-trans.svg" alt="name">
+                <div class="input-group__wrap">
+                  <input type="password" name="password" placeholder="Password" data-msg-required="Check for correct input">
+                  <div class="input-group__border"></div>
+                  <div class="input-group__border-active"></div>
+                </div>
+              </label>
+            </div>
+            <div class="modal-login__footer-wrap">
+              <label class="default-checkbox">
+                <input type="checkbox" name="remember" hidden><span class="default-checkbox__custom"></span><span class="default-checkbox__text">Remember me</span>
+              </label><a class="link" href="index8083.html?a=forgot_password" target="_blank">Forgot password?</a>
+            </div>
+            <div class="default-modal__footer">
+            	<div class="form_answer_error error"></div>
+            </div>
+            <div class="default-modal__footer">
+              <button class="btn-trans modal-login__submit" type="submit">Login</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <svg id="svg-check-white" width="36" height="26" viewBox="0 0 36 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="4.00089" height="34.0151" transform="matrix(0.691975 0.721879 -0.691975 0.721879 34.6161 0)" fill="#fff"/>
+        <rect width="4.00089" height="18.008" transform="matrix(0.691975 -0.721879 0.691975 0.721879 0 12.9996)" fill="#fff"/>
+    </svg>
+    <script src="en/js/libs.min.js"></script>
+   <!---- <script src="en/js/jquery.form.js"></script>---->
+    <script src="en/js/scripts.min43a0.js?v3"></script>
+    <script src="en/js/rs1b26.js?v2"></script>
+	
+	<style>
+	.vsbmt {
+	border-bottom: 1px solid #000;
+    border-bottom-color: rgb(0, 0, 0);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+	height: 40px;
+background-color: #ffca13;
+  
+	}
+	
+	.sbmt {
+		min-width:300px;
+		font-family: "PFBeauSansPro Bold", sans-serif;
+font-size: 13px;
+line-height: 50px;
+text-transform: uppercase;
+text-decoration: none;
+    text-decoration-line: none;
+    text-decoration-style: solid;
+    text-decoration-color: currentcolor;
+text-align: center;
+outline: none;
+    outline-color: currentcolor;
+    outline-style: none;
+    outline-width: medium;
+-webkit-border-bottom-left-radius: 30px;
+border-bottom-left-radius: 30px;
+-webkit-border-top-right-radius: 30px;
+border-top-right-radius: 30px;
+display: inline-block;
+cursor: pointer;
+color: #1e2b38;
+background-color: #fccc25;
+position: relative;
+width: 200px;
+-webkit-transition: all 0.2s linear;
+    transition-property: all;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+-o-transition: all 0.2s linear;
+transition: all 0.2s linear;
+    transition-property: all;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+padding: 0;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+	}
+	
+	.sbmt:hover {
+		min-width:300px;
+		font-family: "PFBeauSansPro Bold", sans-serif;
+font-size: 13px;
+line-height: 50px;
+text-transform: uppercase;
+text-decoration: none;
+    text-decoration-line: none;
+    text-decoration-style: solid;
+    text-decoration-color: currentcolor;
+text-align: center;
+outline: none;
+    outline-color: currentcolor;
+    outline-style: none;
+    outline-width: medium;
+-webkit-border-bottom-left-radius: 30px;
+border-bottom-left-radius: 30px;
+-webkit-border-top-right-radius: 30px;
+border-top-right-radius: 30px;
+display: inline-block;
+cursor: pointer;
+color: #1e2b38;
+background-color: #E9B90F;
+position: relative;
+width: 200px;
+-webkit-transition: all 0.2s linear;
+    transition-property: all;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+-o-transition: all 0.2s linear;
+transition: all 0.2s linear;
+    transition-property: all;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+padding: 0;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+	}
+	
+	
+	</style>
+	
+	
+	<script async data-id="69749" src="../cdn.widgetwhats.com/script.min.js"></script>
+	
+	<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/5fe28020df060f156a8f75a5/1eq6c90rg';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+  </body>
+</html>
