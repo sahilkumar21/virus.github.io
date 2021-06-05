@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="78px" height="18px" viewBox="0 0 78 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>Litecoin</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Footer/Main" transform="translate(-373.000000, -77.000000)" fill="#c0c4cb">
+            <g id="logo" transform="translate(176.000000, 70.000000)">
+                <g id="Litecoin" transform="translate(197.000000, 7.000000)">
+                    <path d="M9,18 C4.0359375,18 0,13.9640625 0,9 C0,4.0359375 4.0359375,0 9,0 C13.9640625,0 18,4.0359375 18,9 C18,13.9640625 13.9640625,18 9,18 Z M8.75529661,12.193299 L9.44385593,9.62242268 L11.0826271,9.02706186 L11.4957627,7.51159794 L11.4819915,7.48453608 L9.87076271,8.06636598 L11.0275424,3.75 L7.72245763,3.75 L6.19385593,9.37886598 L4.92690678,9.83891753 L4.5,11.3949742 L5.78072034,10.9349227 L4.87182203,14.25 L13.6853814,14.25 L14.25,12.193299 L8.75529661,12.193299 Z" id="Combined-Shape" fill-rule="nonzero"></path>
+                    <text font-family="GothamPro, Gotham Pro" font-size="14" font-weight="normal" letter-spacing="0.175">
+                        <tspan x="22" y="14">Litecoin</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
