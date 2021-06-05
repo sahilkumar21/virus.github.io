@@ -114,7 +114,7 @@ table.blank td {font-size:14px;border-width: 0px;padding: 8px;border-style: soli
 	<div class="user-block__auth">
 	<a class="user-block__signup" href="/?a=account">Account</a>
 	<div class="user-block__separate"></div>
-	<div class="user-block__login"><a href="/?a=logout">Logout</a></div>
+	<div class="user-block__login"><a href="logout.php">Logout</a></div>
 	</div>
 	</div>
 	</div>
